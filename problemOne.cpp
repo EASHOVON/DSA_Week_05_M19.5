@@ -100,9 +100,11 @@ void insertAtSpecificPosition(DoublyNode *&head, int position, int value)
         temp = temp->Next;
         i++;
     }
-
-    newNode->Next = temp->Next;
+    DoublyNode *save = temp->Next;
     temp->Next = newNode;
+    newNode->Prev = temp;
+    if (save != NULL)
+        newNode->Next = save;
 }
 
 int searchByValueUnique(DoublyNode *&head, int value)
