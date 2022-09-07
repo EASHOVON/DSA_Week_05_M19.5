@@ -38,8 +38,7 @@ void deletionAtTail(DoublyNode *&head);
 void deletionAtSpecificPosition(DoublyNode *&head, int pos);
 void deletionByValueUnique(DoublyNode *&head, int target);
 void deletionByValueDuplicate(DoublyNode *&head, int target);
-DoublyNode *reverseNonRecursive(DoublyNode *&head);
-DoublyNode *reverseListRecursive(DoublyNode *&head);
+
 // Function Making
 void display(DoublyNode *n)
 {
@@ -69,6 +68,7 @@ int countLength(DoublyNode *&head)
 void insertAtHead(DoublyNode *&head, int value)
 {
     DoublyNode *newNode = new DoublyNode(value);
+    head->Prev = newNode;
     newNode->Next = head;
     head = newNode;
 }
@@ -87,6 +87,7 @@ void insertAtTail(DoublyNode *&head, int value)
         temp = temp->Next;
     }
     temp->Next = newNode;
+    newNode->Prev = temp;
 }
 
 void insertAtSpecificPosition(DoublyNode *&head, int position, int value)
