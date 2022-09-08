@@ -180,6 +180,7 @@ void deletionAtHead(DoublyNode *&head)
     if (temp != NULL)
     {
         head = temp->Next;
+        head->Prev = NULL;
         delete temp;
     }
     else
